@@ -1,6 +1,6 @@
 <template>
   <div class="parentRouter">
-      <h2>Router练习</h2>
+      <h2>{{ title }}</h2>
       <div>
         <router-link to="/parentRouter">默认页面</router-link>
         <router-link to="/parentRouter/parentControl/pc1">父级控制1</router-link>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  name: 'ParentRouter'
+  name: 'ParentRouter',
+  data () {
+    return {
+      title: 'Router练习'
+    }
+  }
 }
 </script>
 
