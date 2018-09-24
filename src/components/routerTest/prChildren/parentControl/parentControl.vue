@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'parentControl'
+  name: 'ParentControl'
 }
 </script>
 

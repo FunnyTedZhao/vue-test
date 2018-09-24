@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'ownerControl'
+  name: 'OwnerControl'
 }
 </script>
 

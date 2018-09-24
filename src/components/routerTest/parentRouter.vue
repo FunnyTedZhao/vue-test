@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'parentRouter'
+  name: 'ParentRouter'
 }
 </script>
 

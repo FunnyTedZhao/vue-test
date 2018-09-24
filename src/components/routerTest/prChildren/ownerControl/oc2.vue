@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'oc2'
+  name: 'OC2'
 }
 </script>
 
