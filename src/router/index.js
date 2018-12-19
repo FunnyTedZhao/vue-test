@@ -10,6 +10,8 @@ import PC2 from '@/components/routerTest/prChildren/parentControl/pc2'
 import OwnerControl from '@/components/routerTest/prChildren/ownerControl/ownerControl'
 import OC1 from '@/components/routerTest/prChildren/ownerControl/oc1'
 import OC2 from '@/components/routerTest/prChildren/ownerControl/oc2'
+// other练习
+import ColorJs from '@/components/otherTest/colorJs/ColorJs.vue'
 
 Vue.use(Router)
 
@@ -57,6 +59,10 @@ export default new Router({
           ]
         }
       ]
+    },
+    {
+      path: '/ColorJs',
+      component: ColorJs
     }
   ]
 })

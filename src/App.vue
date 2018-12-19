@@ -4,6 +4,7 @@
     <div>
       <router-link to="/">首页</router-link>
       <router-link to="/parentRouter">Router练习</router-link>
+      <router-link to="/ColorJs">ColorJs实验</router-link>
     </div>
     <router-view/>
   </div>
