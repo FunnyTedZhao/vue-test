@@ -3,30 +3,44 @@ var ColorJs = require('color-js')
 /**
  * @author FunnyTedZhao
  * @param color
- *    传入设置的color或hue值，如果没有传入原有的颜色
+ *    颜色，对应color或hue字段，如果没有传入原有的颜色
  * @param lightness
- *    传入设置的lightness值，默认值：0
+ *    亮度，默认值：0
  * @param saturation
- *    传入设置的saturation值，默认值：0
+ *    饱和度，默认值：0
+ * @param invertLightness
+ *    是否反色，默认值：false
+ * @param gamma
+ *    gamma校正值，默认值：1.00
  * @return 颜色值
  */
-export default function (color, lightness = 0, saturation = 0) {
-  if (lightness === 0 && saturation === 0) { return color }
+export default function (color, lightness, saturation, invertLightness, gamma) {
+  lightness = lightness || '0'
+  saturation = saturation || '0'
+  invertLightness = invertLightness || false
+  gamma = gamma || '1.00'
 
   let colorObj = ColorJs(color)
-  const l = Math.round(colorObj.getLightness() * 100) / 100
+  const l = invertLightness ? (1 - Math.round(colorObj.getLightness() * 100) / 100) : Math.round(colorObj.getLightness() * 100) / 100
   const s = Math.round(colorObj.getSaturation() * 100) / 100
 
   if (lightness > 0) {
-    colorObj = colorObj.setLightness(((1 - l) * lightness / 100) + l)
-  } else if (lightness < 0) {
-    colorObj = colorObj.setLightness(l + (l * lightness / 100))
+    colorObj = colorObj.setLightness((((1 - l) * lightness / 100) + l) ** (1 / gamma))
+  } else {
+    colorObj = colorObj.setLightness((l + (l * lightness / 100)) ** (1 / gamma))
   }
   if (saturation > 0) {
     colorObj = colorObj.setSaturation(((1 - s) * saturation / 100) + s)
-  } else if (saturation < 0) {
+  } else {
     colorObj = colorObj.setSaturation(s + (s * saturation / 100))
   }
 
   return colorObj.toCSS()
+
+  /* return JSON.stringify({
+    color: colorObj.toCSS(),
+    hue: colorObj.getHue(),
+    lightness: colorObj.getLightness(),
+    saturation: colorObj.getSaturation()
+  }) */
 }
