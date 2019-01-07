@@ -48,10 +48,6 @@
 
 <script>
 import Color from './ColorJs.js'
-import StyleTransform from './StyleTransform.js'
-
-import Google from './googledata.json'
-import Mine from './minedata.json'
 export default {
   name: 'ColorJs',
   data () {
@@ -64,15 +60,10 @@ export default {
       color: '#000000'
     }
   },
-  mounted () {
-    this.showChange(Google, Mine)
-  },
+  mounted () {},
   methods: {
     showColor (color, l, s, f, g) {
       this.color = Color(color, l, s, f, g)
-    },
-    showChange (gData, mdata) {
-      StyleTransform(gData, mdata)
     }
   }
 }

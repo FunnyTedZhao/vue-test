@@ -36,11 +36,4 @@ export default function (color, lightness, saturation, invertLightness, gamma) {
   }
 
   return colorObj.toCSS()
-
-  /* return JSON.stringify({
-    color: colorObj.toCSS(),
-    hue: colorObj.getHue(),
-    lightness: colorObj.getLightness(),
-    saturation: colorObj.getSaturation()
-  }) */
 }
