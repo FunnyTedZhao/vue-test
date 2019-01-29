@@ -12,6 +12,7 @@ import OC1 from '@/components/routerTest/prChildren/ownerControl/oc1'
 import OC2 from '@/components/routerTest/prChildren/ownerControl/oc2'
 // other练习
 import ColorJs from '@/components/otherTest/colorJs/ColorJs.vue'
+import GlobalProps from '@/components/otherTest/globalProps/GlobalProps.vue'
 
 Vue.use(Router)
 
@@ -63,6 +64,10 @@ export default new Router({
     {
       path: '/ColorJs',
       component: ColorJs
+    },
+    {
+      path: '/GlobalProps',
+      component: GlobalProps
     }
   ]
 })
